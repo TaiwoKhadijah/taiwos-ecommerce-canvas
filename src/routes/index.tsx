@@ -53,6 +53,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Services />
+      <Projects />
       <About />
       <Process />
       <Contact />
