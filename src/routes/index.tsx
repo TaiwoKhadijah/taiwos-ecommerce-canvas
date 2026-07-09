@@ -209,6 +209,51 @@ function Services() {
   );
 }
 
+function Projects() {
+  return (
+    <section id="projects" className="py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-brand">Selected work</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Recent Shopify builds</h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            A few of the stores I've designed, built and helped scale for DTC founders.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="aspect-[4/5] overflow-hidden bg-cream">
+                <img
+                  src={p.img}
+                  alt={`${p.name} Shopify store designed by Taiwo Khadijah`}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="flex items-center justify-between px-5 py-4">
+                <div>
+                  <h3 className="font-display text-lg">{p.name}</h3>
+                  <p className="text-xs text-muted-foreground">{p.tag}</p>
+                </div>
+                <span className="text-sm text-brand opacity-0 transition group-hover:opacity-100">Visit →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function About() {
   return (
     <section id="about" className="py-20">
