@@ -1,5 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import taiwoPhoto from "@/assets/taiwo.png.asset.json";
+import projShopael from "@/assets/proj-shopael.png.asset.json";
+import projTillie from "@/assets/proj-tilliebeads.png.asset.json";
+import projMercantile from "@/assets/proj-msmercantile.png.asset.json";
+import projFashion from "@/assets/proj-fashionedit.png.asset.json";
+import projVelnor from "@/assets/proj-velnoshop.png.asset.json";
+
+const PROJECTS = [
+  { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael.url },
+  { name: "Tillie Beads", tag: "Handmade Accessories", url: "https://tilliebeads.com", img: projTillie.url },
+  { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile.url },
+  { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion.url },
+  { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor.url },
+];
 
 const LINKEDIN = "https://www.linkedin.com/in/taiwo-k-526997243/";
 const UPWORK = "https://www.upwork.com/freelancers/~012c796da7fa90cdbc";
