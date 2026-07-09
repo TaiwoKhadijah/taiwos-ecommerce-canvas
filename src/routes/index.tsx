@@ -1,5 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import taiwoPhoto from "@/assets/taiwo.png.asset.json";
+import projShopael from "@/assets/proj-shopael.png.asset.json";
+import projTillie from "@/assets/proj-tilliebeads.png.asset.json";
+import projMercantile from "@/assets/proj-msmercantile.png.asset.json";
+import projFashion from "@/assets/proj-fashionedit.png.asset.json";
+import projVelnor from "@/assets/proj-velnoshop.png.asset.json";
+
+const PROJECTS = [
+  { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael.url },
+  { name: "Tillie Beads", tag: "Handmade Accessories", url: "https://tilliebeads.com", img: projTillie.url },
+  { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile.url },
+  { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion.url },
+  { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor.url },
+];
 
 const LINKEDIN = "https://www.linkedin.com/in/taiwo-k-526997243/";
 const UPWORK = "https://www.upwork.com/freelancers/~012c796da7fa90cdbc";
@@ -40,6 +53,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Services />
+      <Projects />
       <About />
       <Process />
       <Contact />
@@ -57,6 +71,7 @@ function Nav() {
         </a>
         <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="hover:text-foreground">Services</a>
+          <a href="#projects" className="hover:text-foreground">Projects</a>
           <a href="#about" className="hover:text-foreground">About</a>
           <a href="#process" className="hover:text-foreground">Process</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
@@ -187,6 +202,51 @@ function Services() {
               <h3 className="mt-3 font-display text-2xl">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-brand">Selected work</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Recent Shopify builds</h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            A few of the stores I've designed, built and helped scale for DTC founders.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="aspect-[4/5] overflow-hidden bg-cream">
+                <img
+                  src={p.img}
+                  alt={`${p.name} Shopify store designed by Taiwo Khadijah`}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="flex items-center justify-between px-5 py-4">
+                <div>
+                  <h3 className="font-display text-lg">{p.name}</h3>
+                  <p className="text-xs text-muted-foreground">{p.tag}</p>
+                </div>
+                <span className="text-sm text-brand opacity-0 transition group-hover:opacity-100">Visit →</span>
+              </div>
+            </a>
           ))}
         </div>
       </div>
