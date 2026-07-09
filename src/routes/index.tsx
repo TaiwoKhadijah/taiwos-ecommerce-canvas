@@ -71,6 +71,7 @@ function Nav() {
         </a>
         <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="hover:text-foreground">Services</a>
+          <a href="#projects" className="hover:text-foreground">Projects</a>
           <a href="#about" className="hover:text-foreground">About</a>
           <a href="#process" className="hover:text-foreground">Process</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
