@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
+      { name: "description", content: "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
+      { property: "og:description", content: "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
+      { name: "twitter:description", content: "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/976b7069-58e3-4943-9d0d-2146d95b52d4/id-preview-2a26da10--1198a034-dec1-4b45-8abe-163c6963430b.lovable.app-1783686784144.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/976b7069-58e3-4943-9d0d-2146d95b52d4/id-preview-2a26da10--1198a034-dec1-4b45-8abe-163c6963430b.lovable.app-1783686784144.png" },
     ],
     links: [
       {

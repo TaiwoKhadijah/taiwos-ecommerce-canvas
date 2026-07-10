@@ -37,11 +37,11 @@ export const Route = createFileRoute("/")({
         content:
           "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing.",
       },
-      { property: "og:title", content: "Taiwo Khadijah — Shopify & Email Marketing Specialist" },
+      { property: "og:title", content: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
       {
         property: "og:description",
         content:
-          "Build, design and scale your DTC or dropshipping business with a Shopify specialist and email marketing guru.",
+          "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing.",
       },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "/" },
