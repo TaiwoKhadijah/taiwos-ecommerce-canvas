@@ -401,3 +401,264 @@ function Footer() {
     </footer>
   );
 }
+
+const SLIDES = [
+  {
+    kicker: "Shopify Store Design",
+    title: "Storefronts that sell on the first visit",
+    body: "Custom Shopify & Shopify Plus builds designed around your brand, your products, and your customer's next tap.",
+    cta: "Start a Shopify build",
+    img: projShopael.url,
+    accent: "from-[#0a1f44] to-[#1e3a8a]",
+  },
+  {
+    kicker: "Email Marketing",
+    title: "Klaviyo flows that print revenue",
+    body: "Welcome, abandoned cart, browse, post-purchase and win-back flows that turn subscribers into repeat buyers.",
+    cta: "Grow email revenue",
+    img: projTillie.url,
+    accent: "from-[#0f172a] to-[#1d4ed8]",
+  },
+  {
+    kicker: "DTC & Dropshipping",
+    title: "Scale your ecommerce brand, end-to-end",
+    body: "From product research and supplier vetting to launch-ready funnels and CRO — one partner, full stack.",
+    cta: "Book a strategy call",
+    img: projFashion.url,
+    accent: "from-[#0a1f44] to-[#2563eb]",
+  },
+];
+
+function SlideHero() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setI((v) => (v + 1) % SLIDES.length), 5500);
+    return () => clearInterval(id);
+  }, []);
+  const s = SLIDES[i];
+  return (
+    <section id="top" className="relative overflow-hidden bg-[#0a1f44] text-white">
+      <div className={`absolute inset-0 bg-gradient-to-br ${s.accent} transition-all duration-700`} aria-hidden />
+      <div className="absolute inset-0 opacity-20" aria-hidden style={{
+        backgroundImage: "radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,255,255,.15), transparent 45%)",
+      }} />
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-28">
+        <div key={i} className="animate-fade-in">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/80 backdrop-blur">
+            {s.kicker}
+          </span>
+          <h2 className="mt-6 font-display text-4xl leading-[1.05] md:text-6xl">{s.title}</h2>
+          <p className="mt-5 max-w-xl text-lg text-white/80">{s.body}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#lead" className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0a1f44] transition hover:bg-white/90">
+              {s.cta}
+            </a>
+            <a href="#case-studies" className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
+              See case studies →
+            </a>
+          </div>
+          <div className="mt-10 flex gap-2">
+            {SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setI(idx)}
+                aria-label={`Slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${idx === i ? "w-10 bg-white" : "w-4 bg-white/40"}`}
+              />
+            ))}
+          </div>
+        </div>
+        <div key={`img-${i}`} className="relative animate-scale-in">
+          <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" aria-hidden />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/20 bg-white/5 shadow-2xl">
+            <img src={s.img} alt={s.title} className="h-full w-full object-cover object-top" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const CASES = [
+  {
+    name: "Shopael",
+    tag: "Fitness & Apparel",
+    result: "+142%",
+    metric: "Revenue in 90 days",
+    summary: "Rebuilt storefront and Klaviyo flows — recovered carts up 3.4x, AOV up 22%.",
+    url: "https://shopael.com",
+    img: projShopael.url,
+  },
+  {
+    name: "Tillie Beads",
+    tag: "Handmade Accessories",
+    result: "38%",
+    metric: "Email revenue share",
+    summary: "Welcome + browse abandon + post-purchase flows drove 38% of monthly revenue.",
+    url: "https://tilliebeads.com",
+    img: projTillie.url,
+  },
+  {
+    name: "Velnor",
+    tag: "Recovery & Wellness",
+    result: "2.1x",
+    metric: "Conversion rate lift",
+    summary: "Redesigned PDPs, added upsells and social proof — CVR jumped from 1.4% to 2.9%.",
+    url: "https://velnoshop.com",
+    img: projVelnor.url,
+  },
+];
+
+function CaseStudies() {
+  return (
+    <section id="case-studies" className="border-t border-border bg-[#0a1f44] py-20 text-white">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/60">Featured case studies</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Results, not just deliverables</h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-white/70 md:block">
+            A snapshot of what happens when Shopify design meets retention-first email marketing.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {CASES.map((c) => (
+            <a
+              key={c.name}
+              href={c.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-white/5">
+                <img src={c.img} alt={`${c.name} case study`} loading="lazy" className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <p className="text-xs uppercase tracking-widest text-white/50">{c.tag}</p>
+                <h3 className="mt-2 font-display text-2xl">{c.name}</h3>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="font-display text-4xl text-white">{c.result}</span>
+                  <span className="text-xs uppercase tracking-widest text-white/60">{c.metric}</span>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-white/75">{c.summary}</p>
+                <span className="mt-6 text-sm text-white/80 opacity-0 transition group-hover:opacity-100">
+                  View live store →
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LeadCTA() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", store: "", goal: "Shopify store build" });
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New project inquiry — ${form.goal}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nStore / Website: ${form.store}\nGoal: ${form.goal}\n`
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
+  return (
+    <section id="lead" className="relative overflow-hidden border-t border-border bg-background py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-brand">Free 20-minute strategy call</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">
+            Get a custom growth plan for your Shopify store.
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Tell me about your brand and where you want to go. I'll reply within 24 hours with a
+            clear next step — no fluff, no obligation.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            {[
+              "Store & funnel audit",
+              "Email marketing gap analysis",
+              "90-day revenue roadmap",
+            ].map((t) => (
+              <li key={t} className="flex items-center gap-3">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-brand-foreground">✓</span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <form
+          onSubmit={onSubmit}
+          className="rounded-3xl border border-border bg-card p-8 shadow-xl"
+        >
+          <div className="grid gap-4">
+            <label className="grid gap-2 text-sm">
+              <span className="font-medium">Your name</span>
+              <input
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="rounded-lg border border-border bg-background px-4 py-3 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                placeholder="Jane Founder"
+              />
+            </label>
+            <label className="grid gap-2 text-sm">
+              <span className="font-medium">Email</span>
+              <input
+                type="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="rounded-lg border border-border bg-background px-4 py-3 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                placeholder="you@brand.com"
+              />
+            </label>
+            <label className="grid gap-2 text-sm">
+              <span className="font-medium">Store / Website URL</span>
+              <input
+                value={form.store}
+                onChange={(e) => setForm({ ...form, store: e.target.value })}
+                className="rounded-lg border border-border bg-background px-4 py-3 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                placeholder="yourstore.com"
+              />
+            </label>
+            <label className="grid gap-2 text-sm">
+              <span className="font-medium">What do you need help with?</span>
+              <select
+                value={form.goal}
+                onChange={(e) => setForm({ ...form, goal: e.target.value })}
+                className="rounded-lg border border-border bg-background px-4 py-3 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+              >
+                <option>Shopify store build</option>
+                <option>Shopify redesign / CRO</option>
+                <option>Email marketing (Klaviyo)</option>
+                <option>Dropshipping setup</option>
+                <option>Full growth partnership</option>
+              </select>
+            </label>
+            <button
+              type="submit"
+              className="mt-2 rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-brand-foreground transition hover:opacity-90"
+            >
+              {sent ? "Opening your email…" : "Get my free strategy call"}
+            </button>
+            <p className="text-center text-xs text-muted-foreground">
+              Or email me directly at{" "}
+              <a href={`mailto:${EMAIL}`} className="text-brand underline">
+                {EMAIL}
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+}
+
