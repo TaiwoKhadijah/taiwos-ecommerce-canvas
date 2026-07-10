@@ -28,24 +28,24 @@
 
 :root {
   --radius: 1rem;
-  /* Warm cream + deep teal palette inspired by the hijab tone in the photo */
-  --background: oklch(0.975 0.015 85);
-  --cream: oklch(0.95 0.025 80);
-  --foreground: oklch(0.22 0.04 230);
+  /* Navy blue + white palette */
+  --background: oklch(1 0 0);
+  --cream: oklch(0.97 0.01 250);
+  --foreground: oklch(0.18 0.06 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 230);
-  --primary: oklch(0.38 0.09 230);
-  --primary-foreground: oklch(0.98 0.01 85);
-  --brand: oklch(0.42 0.11 225);
-  --brand-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.92 0.03 80);
-  --secondary-foreground: oklch(0.22 0.04 230);
-  --muted: oklch(0.94 0.02 85);
-  --muted-foreground: oklch(0.45 0.03 230);
+  --card-foreground: oklch(0.18 0.06 260);
+  --primary: oklch(0.22 0.09 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --brand: oklch(0.28 0.12 262);
+  --brand-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.015 255);
+  --secondary-foreground: oklch(0.18 0.06 260);
+  --muted: oklch(0.96 0.01 255);
+  --muted-foreground: oklch(0.45 0.04 260);
   --accent: oklch(0.72 0.14 60);
   --accent-foreground: oklch(0.15 0.02 230);
-  --border: oklch(0.88 0.02 85);
-  --ring: oklch(0.42 0.11 225);
+  --border: oklch(0.9 0.015 255);
+  --ring: oklch(0.28 0.12 262);
 }
 
 @layer base {
