@@ -50,6 +50,7 @@ export const Route = createFileRoute("/")({
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Banner />
       <Nav />
       <Hero />
       <Services />
@@ -58,6 +59,31 @@ function Portfolio() {
       <Process />
       <Contact />
       <Footer />
+    </div>
+  );
+}
+
+function Banner() {
+  const items = [
+    "Shopify Store Design & Development",
+    "Klaviyo Email Marketing",
+    "Dropshipping Store Setup",
+    "Conversion Rate Optimization",
+    "DTC Brand Scaling",
+    "Shopify Plus Migrations",
+  ];
+  const loop = [...items, ...items];
+  return (
+    <div className="relative overflow-hidden border-b border-white/10 bg-[#0a1f44] text-white">
+      <div className="flex whitespace-nowrap py-3 [animation:banner-scroll_35s_linear_infinite]">
+        {loop.map((t, i) => (
+          <span key={i} className="mx-8 inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            {t}
+          </span>
+        ))}
+      </div>
+      <style>{`@keyframes banner-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style>
     </div>
   );
 }
