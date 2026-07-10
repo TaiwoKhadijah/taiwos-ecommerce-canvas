@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import taiwoPhoto from "@/assets/taiwo.png.asset.json";
 import projShopael from "@/assets/proj-shopael.png.asset.json";
@@ -6,6 +6,9 @@ import projTillie from "@/assets/proj-tilliebeads.png.asset.json";
 import projMercantile from "@/assets/proj-msmercantile.png.asset.json";
 import projFashion from "@/assets/proj-fashionedit.png.asset.json";
 import projVelnor from "@/assets/proj-velnoshop.png.asset.json";
+import proof1 from "@/assets/proof1.mp4.asset.json";
+import proof2 from "@/assets/proof2.mp4.asset.json";
+import proof3 from "@/assets/proof3.mp4.asset.json";
 
 const PROJECTS = [
   { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael.url },
@@ -13,6 +16,12 @@ const PROJECTS = [
   { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile.url },
   { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion.url },
   { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor.url },
+];
+
+const PROOFS = [
+  { src: proof1.url, name: "DTC Founder", role: "Shopify store build" },
+  { src: proof2.url, name: "Ecommerce Client", role: "Email marketing" },
+  { src: proof3.url, name: "Dropshipping Client", role: "Store setup & scale" },
 ];
 
 const LINKEDIN = "https://www.linkedin.com/in/taiwo-k-526997243/";
@@ -53,10 +62,9 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Banner />
       <Nav />
-      <SlideHero />
       <Hero />
       <Services />
-      <CaseStudies />
+      <SalesProof />
       <Projects />
       <About />
       <Process />
@@ -101,13 +109,13 @@ function Nav() {
         </a>
         <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="hover:text-foreground">Services</a>
+          <a href="#proof" className="hover:text-foreground">Sales Proof</a>
           <a href="#projects" className="hover:text-foreground">Projects</a>
           <a href="#about" className="hover:text-foreground">About</a>
-          <a href="#process" className="hover:text-foreground">Process</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
         </nav>
         <a
-          href={`mailto:${EMAIL}`}
+          href="#lead"
           className="rounded-full bg-brand px-4 py-2 text-sm font-medium text-brand-foreground transition hover:opacity-90"
         >
           Hire me
@@ -119,74 +127,93 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24 md:items-center">
+    <section id="top" className="relative overflow-hidden bg-[#050d24] text-white">
+      {/* animated aurora background */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-[#1e3a8a] opacity-40 blur-3xl [animation:float_14s_ease-in-out_infinite]" />
+        <div className="absolute top-40 -right-20 h-[420px] w-[420px] rounded-full bg-[#2563eb] opacity-30 blur-3xl [animation:float_18s_ease-in-out_infinite_reverse]" />
+        <div className="absolute bottom-0 left-1/3 h-[360px] w-[360px] rounded-full bg-[#60a5fa] opacity-20 blur-3xl [animation:float_22s_ease-in-out_infinite]" />
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.15fr_0.85fr] md:items-center md:py-28">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-3 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Available for new projects
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/80 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Available for new projects
           </span>
-          <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl">
-            Hi, I'm <span className="text-brand">Taiwo Khadijah</span> — I help DTC brands scale on Shopify.
+          <h1 className="mt-6 font-display text-5xl leading-[1.02] md:text-7xl">
+            Build. Design. <span className="bg-gradient-to-r from-[#93c5fd] via-white to-[#93c5fd] bg-clip-text text-transparent">Scale.</span>
+            <br />
+            Your Shopify brand — done right.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Shopify Specialist & Email Marketing Guru. I help ecommerce stores and dropshipping
-            businesses build, design and scale to the next level with stores that convert and
-            email flows that print revenue.
+          <p className="mt-6 max-w-xl text-lg text-white/75">
+            I'm <span className="text-white">Taiwo Khadijah</span> — a Shopify Specialist &
+            Email Marketing Guru helping DTC brands, ecommerce stores and dropshippers turn
+            traffic into revenue with stores that convert and flows that print money.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href={`mailto:${EMAIL}`}
-              className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition hover:bg-foreground/90"
+              href="#lead"
+              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0a1f44] transition hover:bg-white/90"
             >
-              Start a project
+              Start a project →
             </a>
             <a
-              href={UPWORK}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border bg-card px-6 py-3 text-sm font-medium transition hover:bg-cream"
+              href="#proof"
+              className="rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10 backdrop-blur"
             >
-              Hire me on Upwork →
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border bg-card px-6 py-3 text-sm font-medium transition hover:bg-cream"
-            >
-              LinkedIn →
+              Watch client sales proof
             </a>
           </div>
-          <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-8">
+          <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {[
               ["50+", "Stores launched"],
               ["7-fig", "Revenue driven"],
               ["100%", "Client-first"],
             ].map(([k, v]) => (
               <div key={v}>
-                <dt className="font-display text-3xl text-brand">{k}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{v}</dd>
+                <dt className="font-display text-3xl text-white">{k}</dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{v}</dd>
               </div>
             ))}
           </dl>
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2rem] bg-brand/10 blur-2xl" aria-hidden />
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-2xl">
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-[#3b82f6]/40 to-[#1e3a8a]/40 blur-2xl" aria-hidden />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 shadow-2xl backdrop-blur">
             <img
               src={taiwoPhoto.url}
               alt="Portrait of Taiwo Khadijah, Shopify specialist and email marketing expert"
               className="h-full w-full object-cover"
               loading="eager"
             />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050d24]/60 via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+              <div>
+                <p className="font-display text-lg text-white">Taiwo Khadijah</p>
+                <p className="text-xs uppercase tracking-widest text-white/70">Shopify · Klaviyo · CRO</p>
+              </div>
+              <span className="rounded-full bg-emerald-400/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#052e1a]">
+                Open
+              </span>
+            </div>
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-border bg-card p-4 shadow-lg md:block">
-            <p className="font-display text-sm">Shopify Partner</p>
-            <p className="text-xs text-muted-foreground">Design · Build · Scale</p>
+          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg backdrop-blur md:block">
+            <p className="font-display text-sm text-white">Shopify Partner</p>
+            <p className="text-xs text-white/70">Design · Build · Scale</p>
           </div>
         </div>
       </div>
+
+      <style>{`@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.05)}}`}</style>
     </section>
   );
 }
@@ -194,20 +221,28 @@ function Hero() {
 function Services() {
   const items = [
     {
-      title: "Shopify Store Design & Build",
-      body: "Custom, high-converting Shopify storefronts for DTC brands — theme development, speed optimization and CRO from day one.",
+      title: "Shopify Store Design & Development",
+      body: "Custom, on-brand Shopify & Shopify Plus storefronts — theme customization, product pages, checkout, speed and CRO from day one.",
     },
     {
-      title: "Email Marketing",
-      body: "Klaviyo & Mailchimp flows that recover carts, welcome subscribers and turn one-time buyers into repeat customers.",
+      title: "Email Marketing (Klaviyo & Mailchimp)",
+      body: "Welcome, abandoned cart, browse abandon, post-purchase and win-back flows that recover revenue and grow LTV on autopilot.",
     },
     {
-      title: "Dropshipping Setup",
-      body: "End-to-end dropshipping stores — product research, supplier vetting, store build and launch-ready funnels.",
+      title: "Dropshipping Store Setup",
+      body: "End-to-end dropshipping stores — winning product research, supplier vetting, store build and launch-ready funnels.",
     },
     {
-      title: "Scale & Optimize",
-      body: "Ongoing CRO, product page rewrites, upsells and lifecycle marketing to grow revenue without growing ad spend.",
+      title: "Shopify Redesign & Migration",
+      body: "Migrate from Wix, WooCommerce or Etsy to Shopify — or redesign your existing store into a conversion-focused experience.",
+    },
+    {
+      title: "Conversion Rate Optimization (CRO)",
+      body: "Product page rewrites, upsells, bundles, social proof and A/B tests to grow revenue without spending more on ads.",
+    },
+    {
+      title: "Ecommerce Growth Partnership",
+      body: "Ongoing support across storefront, email and lifecycle — one partner focused on compounding your monthly revenue.",
     },
   ];
   return (
@@ -219,10 +254,10 @@ function Services() {
             <h2 className="mt-3 font-display text-4xl md:text-5xl">Services built for ecommerce growth</h2>
           </div>
           <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            From first pixel to first million — I partner with founders who take their brand seriously.
+            From first pixel to first million — everything a DTC founder needs, under one roof.
           </p>
         </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((s, i) => (
             <article
               key={s.title}
@@ -231,7 +266,57 @@ function Services() {
               <span className="font-display text-sm text-brand/70">0{i + 1}</span>
               <h3 className="mt-3 font-display text-2xl">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              <div className="mt-6 h-px w-10 bg-brand/30 transition-all group-hover:w-20" />
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SalesProof() {
+  return (
+    <section id="proof" className="relative overflow-hidden border-t border-white/10 bg-[#050d24] py-20 text-white">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-[#2563eb]/30 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[#1e3a8a]/40 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/60">Sales proof</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Real clients. Real results.</h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-white/70 md:block">
+            Short clips from clients I've helped build, design and scale on Shopify.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {PROOFS.map((p, i) => (
+            <div
+              key={i}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur transition hover:-translate-y-1 hover:bg-white/10"
+            >
+              <div className="aspect-[9/16] overflow-hidden bg-black">
+                <video
+                  src={p.src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="flex items-center justify-between p-5">
+                <div>
+                  <p className="font-display text-lg">{p.name}</p>
+                  <p className="text-xs uppercase tracking-widest text-white/60">{p.role}</p>
+                </div>
+                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
+                  Verified
+                </span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -307,7 +392,7 @@ function About() {
             </p>
           </div>
           <ul className="mt-8 grid grid-cols-2 gap-3 text-sm">
-            {["Shopify & Shopify Plus","Klaviyo & Mailchimp","CRO & Landing Pages","Dropshipping Ops"].map((t) => (
+            {["Shopify & Shopify Plus", "Klaviyo & Mailchimp", "CRO & Landing Pages", "Dropshipping Ops"].map((t) => (
               <li key={t} className="rounded-lg border border-border bg-cream px-4 py-3">{t}</li>
             ))}
           </ul>
@@ -341,213 +426,6 @@ function Process() {
               <h3 className="mt-3 font-display text-xl">{t}</h3>
               <p className="mt-2 text-sm text-primary-foreground/80">{d}</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact() {
-  return (
-    <section id="contact" className="py-24">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <p className="text-xs uppercase tracking-widest text-brand">Let's work together</p>
-        <h2 className="mt-3 font-display text-5xl md:text-6xl">
-          Ready to scale your store to the next level?
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground">
-          Tell me about your brand and where you want to go. I'll show you how we get there.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <a
-            href={`mailto:${EMAIL}`}
-            className="rounded-full bg-brand px-7 py-3.5 text-sm font-medium text-brand-foreground transition hover:opacity-90"
-          >
-            {EMAIL}
-          </a>
-          <a
-            href={UPWORK}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium transition hover:bg-cream"
-          >
-            Hire on Upwork
-          </a>
-          <a
-            href={LINKEDIN}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium transition hover:bg-cream"
-          >
-            Connect on LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
-        <p>© {new Date().getFullYear()} Taiwo Khadijah. All rights reserved.</p>
-        <div className="flex gap-6">
-          <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
-          <a href={UPWORK} target="_blank" rel="noreferrer" className="hover:text-foreground">Upwork</a>
-          <a href={`mailto:${EMAIL}`} className="hover:text-foreground">Email</a>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-const SLIDES = [
-  {
-    kicker: "Shopify Store Design",
-    title: "Storefronts that sell on the first visit",
-    body: "Custom Shopify & Shopify Plus builds designed around your brand, your products, and your customer's next tap.",
-    cta: "Start a Shopify build",
-    img: projShopael.url,
-    accent: "from-[#0a1f44] to-[#1e3a8a]",
-  },
-  {
-    kicker: "Email Marketing",
-    title: "Klaviyo flows that print revenue",
-    body: "Welcome, abandoned cart, browse, post-purchase and win-back flows that turn subscribers into repeat buyers.",
-    cta: "Grow email revenue",
-    img: projTillie.url,
-    accent: "from-[#0f172a] to-[#1d4ed8]",
-  },
-  {
-    kicker: "DTC & Dropshipping",
-    title: "Scale your ecommerce brand, end-to-end",
-    body: "From product research and supplier vetting to launch-ready funnels and CRO — one partner, full stack.",
-    cta: "Book a strategy call",
-    img: projFashion.url,
-    accent: "from-[#0a1f44] to-[#2563eb]",
-  },
-];
-
-function SlideHero() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((v) => (v + 1) % SLIDES.length), 5500);
-    return () => clearInterval(id);
-  }, []);
-  const s = SLIDES[i];
-  return (
-    <section id="top" className="relative overflow-hidden bg-[#0a1f44] text-white">
-      <div className={`absolute inset-0 bg-gradient-to-br ${s.accent} transition-all duration-700`} aria-hidden />
-      <div className="absolute inset-0 opacity-20" aria-hidden style={{
-        backgroundImage: "radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,255,255,.15), transparent 45%)",
-      }} />
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-28">
-        <div key={i} className="animate-fade-in">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/80 backdrop-blur">
-            {s.kicker}
-          </span>
-          <h2 className="mt-6 font-display text-4xl leading-[1.05] md:text-6xl">{s.title}</h2>
-          <p className="mt-5 max-w-xl text-lg text-white/80">{s.body}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#lead" className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0a1f44] transition hover:bg-white/90">
-              {s.cta}
-            </a>
-            <a href="#case-studies" className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
-              See case studies →
-            </a>
-          </div>
-          <div className="mt-10 flex gap-2">
-            {SLIDES.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setI(idx)}
-                aria-label={`Slide ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${idx === i ? "w-10 bg-white" : "w-4 bg-white/40"}`}
-              />
-            ))}
-          </div>
-        </div>
-        <div key={`img-${i}`} className="relative animate-scale-in">
-          <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" aria-hidden />
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/20 bg-white/5 shadow-2xl">
-            <img src={s.img} alt={s.title} className="h-full w-full object-cover object-top" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const CASES = [
-  {
-    name: "Shopael",
-    tag: "Fitness & Apparel",
-    result: "+142%",
-    metric: "Revenue in 90 days",
-    summary: "Rebuilt storefront and Klaviyo flows — recovered carts up 3.4x, AOV up 22%.",
-    url: "https://shopael.com",
-    img: projShopael.url,
-  },
-  {
-    name: "Tillie Beads",
-    tag: "Handmade Accessories",
-    result: "38%",
-    metric: "Email revenue share",
-    summary: "Welcome + browse abandon + post-purchase flows drove 38% of monthly revenue.",
-    url: "https://tilliebeads.com",
-    img: projTillie.url,
-  },
-  {
-    name: "Velnor",
-    tag: "Recovery & Wellness",
-    result: "2.1x",
-    metric: "Conversion rate lift",
-    summary: "Redesigned PDPs, added upsells and social proof — CVR jumped from 1.4% to 2.9%.",
-    url: "https://velnoshop.com",
-    img: projVelnor.url,
-  },
-];
-
-function CaseStudies() {
-  return (
-    <section id="case-studies" className="border-t border-border bg-[#0a1f44] py-20 text-white">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-end justify-between gap-8">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-white/60">Featured case studies</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl">Results, not just deliverables</h2>
-          </div>
-          <p className="hidden max-w-sm text-sm text-white/70 md:block">
-            A snapshot of what happens when Shopify design meets retention-first email marketing.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {CASES.map((c) => (
-            <a
-              key={c.name}
-              href={c.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-white/5">
-                <img src={c.img} alt={`${c.name} case study`} loading="lazy" className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <p className="text-xs uppercase tracking-widest text-white/50">{c.tag}</p>
-                <h3 className="mt-2 font-display text-2xl">{c.name}</h3>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="font-display text-4xl text-white">{c.result}</span>
-                  <span className="text-xs uppercase tracking-widest text-white/60">{c.metric}</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-white/75">{c.summary}</p>
-                <span className="mt-6 text-sm text-white/80 opacity-0 transition group-hover:opacity-100">
-                  View live store →
-                </span>
-              </div>
-            </a>
           ))}
         </div>
       </div>
@@ -595,10 +473,7 @@ function LeadCTA() {
           </ul>
         </div>
 
-        <form
-          onSubmit={onSubmit}
-          className="rounded-3xl border border-border bg-card p-8 shadow-xl"
-        >
+        <form onSubmit={onSubmit} className="rounded-3xl border border-border bg-card p-8 shadow-xl">
           <div className="grid gap-4">
             <label className="grid gap-2 text-sm">
               <span className="font-medium">Your name</span>
@@ -663,3 +538,57 @@ function LeadCTA() {
   );
 }
 
+function Contact() {
+  return (
+    <section id="contact" className="py-24">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <p className="text-xs uppercase tracking-widest text-brand">Let's work together</p>
+        <h2 className="mt-3 font-display text-5xl md:text-6xl">
+          Ready to scale your store to the next level?
+        </h2>
+        <p className="mt-6 text-lg text-muted-foreground">
+          Tell me about your brand and where you want to go. I'll show you how we get there.
+        </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="rounded-full bg-brand px-7 py-3.5 text-sm font-medium text-brand-foreground transition hover:opacity-90"
+          >
+            {EMAIL}
+          </a>
+          <a
+            href={UPWORK}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium transition hover:bg-cream"
+          >
+            Hire on Upwork
+          </a>
+          <a
+            href={LINKEDIN}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium transition hover:bg-cream"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
+        <p>© {new Date().getFullYear()} Taiwo Khadijah. All rights reserved.</p>
+        <div className="flex gap-6">
+          <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
+          <a href={UPWORK} target="_blank" rel="noreferrer" className="hover:text-foreground">Upwork</a>
+          <a href={`mailto:${EMAIL}`} className="hover:text-foreground">Email</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
