@@ -52,11 +52,14 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Banner />
       <Nav />
+      <SlideHero />
       <Hero />
       <Services />
+      <CaseStudies />
       <Projects />
       <About />
       <Process />
+      <LeadCTA />
       <Contact />
       <Footer />
     </div>
