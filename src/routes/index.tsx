@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import taiwoPhoto from "@/assets/taiwo.png.asset.json";
 import projShopael from "@/assets/proj-shopael.png.asset.json";
