@@ -72,6 +72,8 @@ function Portfolio() {
       <Services />
       <SalesProof />
       <Projects />
+      <PortfolioCTA />
+      <Testimonials />
       <About />
       <Process />
       <LeadCTA />
