@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Netlify needs a Nitro server target so TanStack Start SSR routes and page
+  // refreshes resolve through Netlify Functions instead of a static-only deploy.
+  // Lovable preview/publish still overrides this to its own hosting target.
+  nitro: {
+    preset: "netlify",
+  },
 });
