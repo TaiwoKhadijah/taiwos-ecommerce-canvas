@@ -6,6 +6,9 @@ import projTillie from "@/assets/proj-tilliebeads.png.asset.json";
 import projMercantile from "@/assets/proj-msmercantile.png.asset.json";
 import projFashion from "@/assets/proj-fashionedit.png.asset.json";
 import projVelnor from "@/assets/proj-velnoshop.png.asset.json";
+import projTdk from "@/assets/proj-tdkforher.png.asset.json";
+import projTreadmill from "@/assets/proj-treadmillbeltpros.png.asset.json";
+import proj9max from "@/assets/proj-9max.png.asset.json";
 import proof1 from "@/assets/proof1.mp4.asset.json";
 import proof2 from "@/assets/proof2.mp4.asset.json";
 import proof3 from "@/assets/proof3.mp4.asset.json";
@@ -16,6 +19,9 @@ const PROJECTS = [
   { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile.url },
   { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion.url },
   { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor.url },
+  { name: "tdK for Her", tag: "Streetwear & Sneakers", url: "https://tdkforher.shop", img: projTdk.url },
+  { name: "Treadmill Belt Pros", tag: "Fitness Equipment", url: "https://treadmillbeltpros.com", img: projTreadmill.url },
+  { name: "9Max", tag: "Home & Family", url: "https://9max.shop", img: proj9max.url },
 ];
 
 const PROOFS = [
