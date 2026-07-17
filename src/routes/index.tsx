@@ -72,6 +72,8 @@ function Portfolio() {
       <Services />
       <SalesProof />
       <Projects />
+      <PortfolioCTA />
+      <Testimonials />
       <About />
       <Process />
       <LeadCTA />
@@ -117,6 +119,7 @@ function Nav() {
           <a href="#services" className="hover:text-foreground">Services</a>
           <a href="#proof" className="hover:text-foreground">Sales Proof</a>
           <a href="#projects" className="hover:text-foreground">Projects</a>
+          <a href="#testimonials" className="hover:text-foreground">Testimonials</a>
           <a href="#about" className="hover:text-foreground">About</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
         </nav>
@@ -161,8 +164,9 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/75">
             I'm <span className="text-white">Taiwo Khadijah</span> — a Shopify Specialist &
-            Email Marketing Guru helping DTC brands, ecommerce stores and dropshippers turn
-            traffic into revenue with stores that convert and flows that print money.
+            Email Marketing Guru helping founders, DTC brands, ecommerce stores and
+            dropshippers turn traffic into revenue with stores that convert and flows that
+            print money.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -374,6 +378,184 @@ function Projects() {
     </section>
   );
 }
+
+function PortfolioCTA() {
+  return (
+    <section className="relative overflow-hidden border-t border-border bg-cream/60 py-16">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
+        <div className="max-w-2xl">
+          <p className="text-xs uppercase tracking-widest text-brand">See the full portfolio</p>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">
+            Like what you see? There's plenty more where that came from.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Explore every live Shopify store I've designed, built and scaled — or book a free
+            call and let's plan yours next.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="#projects"
+            className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground transition hover:opacity-90"
+          >
+            View all projects
+          </a>
+          <a
+            href={UPWORK}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-border bg-card px-6 py-3 text-sm font-medium transition hover:bg-background"
+          >
+            See my Upwork portfolio →
+          </a>
+          <a
+            href="#lead"
+            className="rounded-full border border-brand/30 bg-background px-6 py-3 text-sm font-medium text-brand transition hover:bg-brand hover:text-brand-foreground"
+          >
+            Start your project
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const TESTIMONIALS = [
+  {
+    name: "Marcus Reid",
+    role: "Founder, Shopael",
+    type: "DTC Brand",
+    quote:
+      "Taiwo rebuilt our Shopify store from scratch and our conversion rate jumped almost overnight. She just gets ecommerce — design, copy, funnel, everything.",
+  },
+  {
+    name: "Amelia Chen",
+    role: "Founder, Tillie Beads",
+    type: "Handmade Brand",
+    quote:
+      "I came to Taiwo as a small handmade brand and left with a store that looks like a global label. Sales tripled in the first month after launch.",
+  },
+  {
+    name: "David Okafor",
+    role: "Founder, 9Max",
+    type: "Ecommerce Startup",
+    quote:
+      "She didn't just build our store — she built our entire launch strategy. Klaviyo flows alone are pulling 32% of our monthly revenue now.",
+  },
+  {
+    name: "Sarah Whitfield",
+    role: "Founder, Fashion Edit",
+    type: "Fashion Founder",
+    quote:
+      "Taiwo is one of those rare people who combines taste with strategy. Our new store finally feels premium — and the numbers back it up.",
+  },
+  {
+    name: "Jordan Mills",
+    role: "Founder, Velnor",
+    type: "Wellness Brand",
+    quote:
+      "We were stuck at 5-figures a month. Six weeks after Taiwo optimized our funnel and emails, we crossed six-figures. No new ad spend.",
+  },
+  {
+    name: "Rachel Thompson",
+    role: "Owner, Main Street Mercantile",
+    type: "Retail Founder",
+    quote:
+      "Taiwo migrated our shop from another platform without losing a single order. Beautiful, fast, and finally something we're proud to share.",
+  },
+  {
+    name: "Ibrahim Yusuf",
+    role: "Founder, Treadmill Belt Pros",
+    type: "Niche Ecommerce",
+    quote:
+      "She turned a niche product into a real brand. Product pages, upsells, email — it all just works. Best hire I've made this year.",
+  },
+  {
+    name: "Priya Nair",
+    role: "Founder, tdK for Her",
+    type: "Streetwear Founder",
+    quote:
+      "Taiwo brought our vision to life and made it convert. The launch sold out in under 48 hours. I recommend her to every founder I know.",
+  },
+  {
+    name: "Luke Andersen",
+    role: "Solo Founder",
+    type: "Dropshipping",
+    quote:
+      "I'm a one-man show and Taiwo made me look like a real team. Store, supplier setup, flows — she handled all of it and I finally started scaling.",
+  },
+  {
+    name: "Chiamaka Eze",
+    role: "Founder, Skincare Startup",
+    type: "Beauty Brand",
+    quote:
+      "She doesn't only work with big DTC brands — she treated my small startup with the same care and strategy. My store finally feels legit.",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section id="testimonials" className="border-t border-border bg-background py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-brand">Client love</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">
+              Trusted by founders — not just DTC brands.
+            </h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            From solo founders and handmade shops to fast-scaling DTC labels — here's what
+            they say about working with me.
+          </p>
+        </div>
+
+        <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [column-fill:_balance]">
+          {TESTIMONIALS.map((t) => (
+            <figure
+              key={t.name}
+              className="mb-6 break-inside-avoid rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-1 text-accent" aria-label="5 star rating">
+                {"★★★★★".split("").map((s, i) => (
+                  <span key={i} className="text-base">{s}</span>
+                ))}
+              </div>
+              <blockquote className="mt-4 font-display text-lg leading-snug text-foreground">
+                "{t.quote}"
+              </blockquote>
+              <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-display text-sm font-semibold text-brand-foreground">
+                  {t.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </span>
+                <div>
+                  <p className="text-sm font-semibold">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
+                </div>
+                <span className="ml-auto rounded-full border border-border bg-cream px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+                  {t.type}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-14 flex flex-col items-center gap-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            Founder, indie brand, or scaling DTC label — I'd love to help you next.
+          </p>
+          <a
+            href="#lead"
+            className="rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-foreground transition hover:opacity-90"
+          >
+            Book your free strategy call →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function About() {
   return (
