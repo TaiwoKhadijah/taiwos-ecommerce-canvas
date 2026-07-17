@@ -164,8 +164,9 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/75">
             I'm <span className="text-white">Taiwo Khadijah</span> — a Shopify Specialist &
-            Email Marketing Guru helping DTC brands, ecommerce stores and dropshippers turn
-            traffic into revenue with stores that convert and flows that print money.
+            Email Marketing Guru helping founders, DTC brands, ecommerce stores and
+            dropshippers turn traffic into revenue with stores that convert and flows that
+            print money.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
