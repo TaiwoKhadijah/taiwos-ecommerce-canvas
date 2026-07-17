@@ -119,6 +119,7 @@ function Nav() {
           <a href="#services" className="hover:text-foreground">Services</a>
           <a href="#proof" className="hover:text-foreground">Sales Proof</a>
           <a href="#projects" className="hover:text-foreground">Projects</a>
+          <a href="#testimonials" className="hover:text-foreground">Testimonials</a>
           <a href="#about" className="hover:text-foreground">About</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
         </nav>
