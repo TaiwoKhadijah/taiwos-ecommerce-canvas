@@ -12,6 +12,9 @@ import proj9max from "@/assets/9max.png";
 import proof1 from "@/assets/proof1.mp4";
 import proof2 from "@/assets/proof2.mp4";
 import proof3 from "@/assets/proof3.mp4";
+import proof1Webm from "@/assets/proof1.webm";
+import proof2Webm from "@/assets/proof2.webm";
+import proof3Webm from "@/assets/proof3.webm";
 
 const PROJECTS = [
   { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael },
@@ -25,9 +28,9 @@ const PROJECTS = [
 ];
 
 const PROOFS = [
-  { src: proof1, name: "DTC Founder", role: "Shopify store build" },
-  { src: proof2, name: "Ecommerce Client", role: "Email marketing" },
-  { src: proof3, name: "Dropshipping Client", role: "Store setup & scale" },
+  { src: proof1Webm, fallback: proof1, name: "DTC Founder", role: "Shopify store build" },
+  { src: proof2Webm, fallback: proof2, name: "Ecommerce Client", role: "Email marketing" },
+  { src: proof3Webm, fallback: proof3, name: "Dropshipping Client", role: "Store setup & scale" },
 ];
 
 const LINKEDIN = "https://www.linkedin.com/in/taiwo-k-526997243/";
@@ -315,7 +318,10 @@ function SalesProof() {
                   playsInline
                   preload="metadata"
                   className="h-full w-full object-cover"
-                />
+                >
+                  <source src={p.src} type="video/webm" />
+                  <source src={p.fallback} type="video/mp4" />
+                </video>
               </div>
               <div className="flex items-center justify-between p-5">
                 <div>
