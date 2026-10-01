@@ -1,33 +1,33 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import taiwoPhoto from "@/assets/taiwo.png.asset.json";
-import projShopael from "@/assets/proj-shopael.png.asset.json";
-import projTillie from "@/assets/proj-tilliebeads.png.asset.json";
-import projMercantile from "@/assets/proj-msmercantile.png.asset.json";
-import projFashion from "@/assets/proj-fashionedit.png.asset.json";
-import projVelnor from "@/assets/proj-velnoshop.png.asset.json";
-import projTdk from "@/assets/proj-tdkforher.png.asset.json";
-import projTreadmill from "@/assets/proj-treadmillbeltpros.png.asset.json";
-import proj9max from "@/assets/proj-9max.png.asset.json";
-import proof1 from "@/assets/proof1.mp4.asset.json";
-import proof2 from "@/assets/proof2.mp4.asset.json";
-import proof3 from "@/assets/proof3.mp4.asset.json";
+import taiwoPhoto from "@/assets/taiwo.png";
+import projShopael from "@/assets/shopael.png";
+import projTillie from "@/assets/tilliebeads.png";
+import projMercantile from "@/assets/msmercantile.png";
+import projFashion from "@/assets/fashionedit.png";
+import projVelnor from "@/assets/velnoshop.png";
+import projTdk from "@/assets/tdkforher.png";
+import projTreadmill from "@/assets/treadmillbeltpros.png";
+import proj9max from "@/assets/9max.png";
+import proof1 from "@/assets/proof1.mp4";
+import proof2 from "@/assets/proof2.mp4";
+import proof3 from "@/assets/proof3.mp4";
 
 const PROJECTS = [
-  { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael.url },
-  { name: "Tillie Beads", tag: "Handmade Accessories", url: "https://tilliebeads.com", img: projTillie.url },
-  { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile.url },
-  { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion.url },
-  { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor.url },
-  { name: "tdK for Her", tag: "Streetwear & Sneakers", url: "https://tdkforher.shop", img: projTdk.url },
-  { name: "Treadmill Belt Pros", tag: "Fitness Equipment", url: "https://treadmillbeltpros.com", img: projTreadmill.url },
-  { name: "9Max", tag: "Home & Family", url: "https://9max.shop", img: proj9max.url },
+  { name: "Shopael", tag: "Fitness & Apparel", url: "https://shopael.com", img: projShopael },
+  { name: "Tillie Beads", tag: "Handmade Accessories", url: "https://tilliebeads.com", img: projTillie },
+  { name: "Main Street Mercantile", tag: "Lifestyle & Gifts", url: "https://ms-mercantile.com", img: projMercantile },
+  { name: "Fashion Edit", tag: "Fashion & DTC", url: "https://fashionedit.com", img: projFashion },
+  { name: "Velnor", tag: "Recovery & Wellness", url: "https://velnoshop.com", img: projVelnor },
+  { name: "tdK for Her", tag: "Streetwear & Sneakers", url: "https://tdkforher.shop", img: projTdk },
+  { name: "Treadmill Belt Pros", tag: "Fitness Equipment", url: "https://treadmillbeltpros.com", img: projTreadmill },
+  { name: "9Max", tag: "Home & Family", url: "https://9max.shop", img: proj9max },
 ];
 
 const PROOFS = [
-  { src: proof1.url, name: "DTC Founder", role: "Shopify store build" },
-  { src: proof2.url, name: "Ecommerce Client", role: "Email marketing" },
-  { src: proof3.url, name: "Dropshipping Client", role: "Store setup & scale" },
+  { src: proof1, name: "DTC Founder", role: "Shopify store build" },
+  { src: proof2, name: "Ecommerce Client", role: "Email marketing" },
+  { src: proof3, name: "Dropshipping Client", role: "Store setup & scale" },
 ];
 
 const LINKEDIN = "https://www.linkedin.com/in/taiwo-k-526997243/";
@@ -37,13 +37,13 @@ const EMAIL = "Taiwokhadijah251@gmail.com";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
+      { title: "Taiwo Khadijah, Shopify Specialist & Email Marketing Expert" },
       {
         name: "description",
         content:
           "Taiwo Khadijah helps DTC brands, ecommerce stores and dropshippers build, design and scale with Shopify and high-converting email marketing.",
       },
-      { property: "og:title", content: "Taiwo Khadijah — Shopify Specialist & Email Marketing Expert" },
+      { property: "og:title", content: "Taiwo Khadijah, Shopify Specialist & Email Marketing Expert" },
       {
         property: "og:description",
         content:
@@ -160,10 +160,10 @@ function Hero() {
           <h1 className="mt-6 font-display text-5xl leading-[1.02] md:text-7xl">
             Build. Design. <span className="bg-gradient-to-r from-[#93c5fd] via-white to-[#93c5fd] bg-clip-text text-transparent">Scale.</span>
             <br />
-            Your Shopify brand — done right.
+            Your Shopify brand, done right.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/75">
-            I'm <span className="text-white">Taiwo Khadijah</span> — a Shopify Specialist &
+            I'm <span className="text-white">Taiwo Khadijah</span>, a Shopify Specialist &
             Email Marketing Guru helping founders, DTC brands, ecommerce stores and
             dropshippers turn traffic into revenue with stores that convert and flows that
             print money.
@@ -200,7 +200,7 @@ function Hero() {
           <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-[#3b82f6]/40 to-[#1e3a8a]/40 blur-2xl" aria-hidden />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 shadow-2xl backdrop-blur">
             <img
-              src={taiwoPhoto.url}
+              src={taiwoPhoto}
               alt="Portrait of Taiwo Khadijah, Shopify specialist and email marketing expert"
               className="h-full w-full object-cover"
               loading="eager"
@@ -232,7 +232,7 @@ function Services() {
   const items = [
     {
       title: "Shopify Store Design & Development",
-      body: "Custom, on-brand Shopify & Shopify Plus storefronts — theme customization, product pages, checkout, speed and CRO from day one.",
+      body: "Custom, on-brand Shopify & Shopify Plus storefronts, theme customization, product pages, checkout, speed and CRO from day one.",
     },
     {
       title: "Email Marketing (Klaviyo & Mailchimp)",
@@ -240,11 +240,11 @@ function Services() {
     },
     {
       title: "Dropshipping Store Setup",
-      body: "End-to-end dropshipping stores — winning product research, supplier vetting, store build and launch-ready funnels.",
+      body: "End-to-end dropshipping stores, winning product research, supplier vetting, store build and launch-ready funnels.",
     },
     {
       title: "Shopify Redesign & Migration",
-      body: "Migrate from Wix, WooCommerce or Etsy to Shopify — or redesign your existing store into a conversion-focused experience.",
+      body: "Migrate from Wix, WooCommerce or Etsy to Shopify, or redesign your existing store into a conversion-focused experience.",
     },
     {
       title: "Conversion Rate Optimization (CRO)",
@@ -252,7 +252,7 @@ function Services() {
     },
     {
       title: "Ecommerce Growth Partnership",
-      body: "Ongoing support across storefront, email and lifecycle — one partner focused on compounding your monthly revenue.",
+      body: "Ongoing support across storefront, email and lifecycle, with one partner focused on compounding your monthly revenue.",
     },
   ];
   return (
@@ -264,7 +264,7 @@ function Services() {
             <h2 className="mt-3 font-display text-4xl md:text-5xl">Services built for ecommerce growth</h2>
           </div>
           <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            From first pixel to first million — everything a DTC founder needs, under one roof.
+            From first pixel to first million, everything a DTC founder needs under one roof.
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -389,7 +389,7 @@ function PortfolioCTA() {
             Like what you see? There's plenty more where that came from.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Explore every live Shopify store I've designed, built and scaled — or book a free
+             Explore every live Shopify store I've designed, built and scaled, or book a free
             call and let's plan yours next.
           </p>
         </div>
@@ -426,7 +426,7 @@ const TESTIMONIALS = [
     role: "Founder, Shopael",
     type: "DTC Brand",
     quote:
-      "Taiwo rebuilt our Shopify store from scratch and our conversion rate jumped almost overnight. She just gets ecommerce — design, copy, funnel, everything.",
+      "Taiwo rebuilt our Shopify store from scratch and our conversion rate jumped almost overnight. She just gets ecommerce: design, copy, funnel, everything.",
   },
   {
     name: "Amelia Chen",
@@ -440,14 +440,14 @@ const TESTIMONIALS = [
     role: "Founder, 9Max",
     type: "Ecommerce Startup",
     quote:
-      "She didn't just build our store — she built our entire launch strategy. Klaviyo flows alone are pulling 32% of our monthly revenue now.",
+      "She didn't just build our store, she built our entire launch strategy. Klaviyo flows alone are pulling 32% of our monthly revenue now.",
   },
   {
     name: "Sarah Whitfield",
     role: "Founder, Fashion Edit",
     type: "Fashion Founder",
     quote:
-      "Taiwo is one of those rare people who combines taste with strategy. Our new store finally feels premium — and the numbers back it up.",
+      "Taiwo is one of those rare people who combines taste with strategy. Our new store finally feels premium, and the numbers back it up.",
   },
   {
     name: "Jordan Mills",
@@ -468,7 +468,7 @@ const TESTIMONIALS = [
     role: "Founder, Treadmill Belt Pros",
     type: "Niche Ecommerce",
     quote:
-      "She turned a niche product into a real brand. Product pages, upsells, email — it all just works. Best hire I've made this year.",
+      "She turned a niche product into a real brand. Product pages, upsells and email all just work. Best hire I've made this year.",
   },
   {
     name: "Priya Nair",
@@ -482,14 +482,14 @@ const TESTIMONIALS = [
     role: "Solo Founder",
     type: "Dropshipping",
     quote:
-      "I'm a one-man show and Taiwo made me look like a real team. Store, supplier setup, flows — she handled all of it and I finally started scaling.",
+      "I'm a one-man show and Taiwo made me look like a real team. Store, supplier setup and flows, she handled all of it and I finally started scaling.",
   },
   {
     name: "Chiamaka Eze",
     role: "Founder, Skincare Startup",
     type: "Beauty Brand",
     quote:
-      "She doesn't only work with big DTC brands — she treated my small startup with the same care and strategy. My store finally feels legit.",
+      "She doesn't only work with big DTC brands, she treated my small startup with the same care and strategy. My store finally feels legit.",
   },
 ];
 
@@ -501,11 +501,11 @@ function Testimonials() {
           <div>
             <p className="text-xs uppercase tracking-widest text-brand">Client love</p>
             <h2 className="mt-3 font-display text-4xl md:text-5xl">
-              Trusted by founders — not just DTC brands.
+              Trusted by founders, not just DTC brands.
             </h2>
           </div>
           <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            From solo founders and handmade shops to fast-scaling DTC labels — here's what
+            From solo founders and handmade shops to fast-scaling DTC labels, here's what
             they say about working with me.
           </p>
         </div>
@@ -542,7 +542,7 @@ function Testimonials() {
 
         <div className="mt-14 flex flex-col items-center gap-4 text-center">
           <p className="text-sm text-muted-foreground">
-            Founder, indie brand, or scaling DTC label — I'd love to help you next.
+            Founder, indie brand, or scaling DTC label, I'd love to help you next.
           </p>
           <a
             href="#lead"
@@ -568,7 +568,7 @@ function About() {
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground">
             <p>
-              I'm Taiwo Khadijah — a Shopify Specialist and Email Marketing Guru helping
+              I'm Taiwo Khadijah, a Shopify Specialist and Email Marketing Guru helping
               direct-to-consumer brands, ecommerce stores and dropshippers build, design and
               scale their business to the next level.
             </p>
@@ -587,7 +587,7 @@ function About() {
         </div>
         <div className="order-1 md:order-2">
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card">
-            <img src={taiwoPhoto.url} alt="Taiwo Khadijah" className="w-full object-cover" />
+            <img src={taiwoPhoto} alt="Taiwo Khadijah" className="w-full object-cover" />
           </div>
         </div>
       </div>
@@ -627,7 +627,7 @@ function LeadCTA() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`New project inquiry — ${form.goal}`);
+    const subject = encodeURIComponent(`New project inquiry: ${form.goal}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nStore / Website: ${form.store}\nGoal: ${form.goal}\n`
     );
@@ -645,7 +645,7 @@ function LeadCTA() {
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
             Tell me about your brand and where you want to go. I'll reply within 24 hours with a
-            clear next step — no fluff, no obligation.
+              clear next step, no fluff, no obligation.
           </p>
           <ul className="mt-8 space-y-3 text-sm">
             {[
