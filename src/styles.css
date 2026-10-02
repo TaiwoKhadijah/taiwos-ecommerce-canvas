@@ -24,6 +24,10 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-cream: var(--cream);
+  --color-hero: var(--hero);
+  --color-hero-deep: var(--hero-deep);
+  --color-hero-glow: var(--hero-glow);
+  --color-hero-line: var(--hero-line);
 }
 
 :root {
@@ -46,6 +50,11 @@
   --accent-foreground: oklch(0.15 0.02 230);
   --border: oklch(0.9 0.015 255);
   --ring: oklch(0.28 0.12 262);
+  /* Home page hero background system */
+  --hero-deep: oklch(0.16 0.07 265);
+  --hero: oklch(0.27 0.1 262);
+  --hero-glow: oklch(0.55 0.15 255);
+  --hero-line: oklch(0.86 0.05 250);
 }
 
 @layer base {
@@ -58,4 +67,21 @@
     font-feature-settings: "ss01", "cv11";
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+/* Ambient motion for the home page hero background */
+@keyframes hero-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.65; }
+  50% { transform: translate3d(5%, -6%, 0) scale(1.12); opacity: 1; }
+}
+@keyframes hero-beam {
+  0%, 100% { transform: translateX(-4%) skewX(-14deg) scaleY(1); opacity: 0.45; }
+  50% { transform: translateX(6%) skewX(-14deg) scaleY(1.05); opacity: 0.85; }
+}
+@keyframes hero-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-layer { animation: none !important; }
 }
