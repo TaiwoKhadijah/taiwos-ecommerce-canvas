@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Bundle portfolio media through Vite asset imports so Netlify deployments serve every image and video with the site.
+- Keep hero/background colors as semantic tokens in `src/styles.css` and background keyframes there too, so theme changes stay in one place instead of scattered hex codes.

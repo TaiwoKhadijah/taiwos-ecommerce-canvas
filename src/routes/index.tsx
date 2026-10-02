@@ -139,20 +139,80 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-[#050d24] text-white">
-      {/* animated aurora background */}
+    <section id="top" className="relative overflow-hidden bg-hero-deep text-white">
+      {/* Layered background: navy mesh wash, light shaft, orbit rings, dot grid, grain */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-[#1e3a8a] opacity-40 blur-3xl [animation:float_14s_ease-in-out_infinite]" />
-        <div className="absolute top-40 -right-20 h-[420px] w-[420px] rounded-full bg-[#2563eb] opacity-30 blur-3xl [animation:float_18s_ease-in-out_infinite_reverse]" />
-        <div className="absolute bottom-0 left-1/3 h-[360px] w-[360px] rounded-full bg-[#60a5fa] opacity-20 blur-3xl [animation:float_22s_ease-in-out_infinite]" />
         <div
-          className="absolute inset-0 opacity-[0.08]"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+            backgroundImage: [
+              "radial-gradient(55% 50% at 10% 4%, color-mix(in oklab, var(--hero-glow) 45%, transparent) 0%, transparent 62%)",
+              "radial-gradient(48% 44% at 92% 26%, color-mix(in oklab, var(--hero-glow) 38%, transparent) 0%, transparent 64%)",
+              "radial-gradient(70% 55% at 50% 112%, color-mix(in oklab, var(--hero) 88%, transparent) 0%, transparent 70%)",
+              "linear-gradient(160deg, var(--hero) 0%, var(--hero-deep) 62%)",
+            ].join(", "),
           }}
         />
+
+        <div
+          className="hero-layer absolute -top-1/4 left-[16%] h-[150%] w-[30%] origin-top blur-[38px] [animation:hero-beam_18s_ease-in-out_infinite]"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, color-mix(in oklab, var(--hero-line) 22%, transparent) 0%, color-mix(in oklab, var(--hero-line) 7%, transparent) 45%, transparent 82%)",
+          }}
+        />
+
+        <svg
+          className="hero-layer absolute -right-40 top-1/2 h-[860px] w-[860px] -translate-y-1/2 opacity-40 [animation:hero-orbit_90s_linear_infinite]"
+          viewBox="0 0 600 600"
+          fill="none"
+          style={{
+            maskImage: "radial-gradient(circle at 50% 50%, black 22%, transparent 72%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 22%, transparent 72%)",
+          }}
+        >
+          {[90, 150, 210, 270].map((r) => (
+            <circle key={r} cx="300" cy="300" r={r} stroke="var(--hero-line)" strokeOpacity="0.3" strokeWidth="1" strokeDasharray="3 9" />
+          ))}
+          <circle cx="300" cy="300" r="210" stroke="var(--hero-line)" strokeOpacity="0.45" strokeWidth="1" />
+          <circle cx="510" cy="300" r="4.5" fill="var(--accent)" fillOpacity="0.9" />
+          <circle cx="300" cy="150" r="3" fill="var(--hero-line)" fillOpacity="0.75" />
+        </svg>
+
+        <div
+          className="hero-layer absolute -left-24 top-[8%] h-[420px] w-[420px] rounded-full blur-3xl [animation:hero-drift_20s_ease-in-out_infinite]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, color-mix(in oklab, var(--hero-glow) 55%, transparent) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="hero-layer absolute -bottom-[10%] right-[6%] h-[340px] w-[340px] rounded-full blur-3xl [animation:hero-drift_26s_ease-in-out_infinite_reverse]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, color-mix(in oklab, var(--accent) 26%, transparent) 0%, transparent 70%)",
+          }}
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.16]"
+          style={{
+            backgroundImage: "radial-gradient(var(--hero-line) 1px, transparent 1px)",
+            backgroundSize: "26px 26px",
+            maskImage: "radial-gradient(75% 65% at 50% 38%, black 0%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(75% 65% at 50% 38%, black 0%, transparent 78%)",
+          }}
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.05] mix-blend-soft-light"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          }}
+        />
+
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       </div>
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.15fr_0.85fr] md:items-center md:py-28">
@@ -208,7 +268,7 @@ function Hero() {
               className="h-full w-full object-cover"
               loading="eager"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050d24]/60 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-hero-deep/60 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
               <div>
                 <p className="font-display text-lg text-white">Taiwo Khadijah</p>
@@ -219,14 +279,13 @@ function Hero() {
               </span>
             </div>
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg backdrop-blur md:block">
+          <div className="absolute -top-6 -left-6 hidden rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg backdrop-blur md:block">
             <p className="font-display text-sm text-white">Shopify Partner</p>
             <p className="text-xs text-white/70">Design · Build · Scale</p>
           </div>
         </div>
       </div>
 
-      <style>{`@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.05)}}`}</style>
     </section>
   );
 }
