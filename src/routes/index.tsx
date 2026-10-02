@@ -503,17 +503,11 @@ function Testimonials() {
   return (
     <section id="testimonials" className="border-t border-border bg-background py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-end justify-between gap-8">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-brand">Client love</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl">
-              Trusted by founders, not just DTC brands.
-            </h2>
-          </div>
-          <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            From solo founders and handmade shops to fast-scaling DTC labels, here's what
-            they say about working with me.
-          </p>
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-widest text-brand">Client love</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">
+            Trusted by founders, not just DTC brands.
+          </h2>
         </div>
 
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [column-fill:_balance]">
