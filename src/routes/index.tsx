@@ -279,7 +279,7 @@ function Hero() {
               </span>
             </div>
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg backdrop-blur md:block">
+          <div className="absolute -top-6 -left-6 hidden rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg backdrop-blur md:block">
             <p className="font-display text-sm text-white">Shopify Partner</p>
             <p className="text-xs text-white/70">Design · Build · Scale</p>
           </div>
